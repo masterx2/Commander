@@ -1,0 +1,6 @@
+node_modules
+vendor
+var
+composer.lock
+composer.phar
+.idea
