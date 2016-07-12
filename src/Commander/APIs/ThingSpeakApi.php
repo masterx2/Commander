@@ -27,7 +27,7 @@ class ThingSpeakApi extends Base {
      * Получить поле из ленты канала
      * @param int $channel Номер канала
      * @param int $field Номер поля
-     * @param int $results Количество последних записей
+     * @param int $limit Количество последних записей
      * @return array
      */
     public function getFeedField($channel, $field=1, $limit=null) {
@@ -42,6 +42,7 @@ class ThingSpeakApi extends Base {
      * @return array
      */
     public function updateFeed($channel, $fields, $api_key) {
-        return $this->request("https://api.thingspeak.com/channels/$channel.json", Requests::PUT, $fields);
+        return $this->request("https://api.thingspeak.com/channels/$channel.json", Requests::PUT, 
+            array_merge(["api_key" => $api_key], $fields));
     }
 }

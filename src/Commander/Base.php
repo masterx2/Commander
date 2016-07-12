@@ -23,12 +23,17 @@ class Base {
      * @param string $type
      * @param array $data
      * @return array
+     * @throws Exception
      */
     public function request($url, $type=Requests::GET, $data=[]) {
 
+
+        echo "API Request to $url...".PHP_EOL;
+        echo "Data: ".var_export($data, true).PHP_EOL;
+
+
         $headers     = [];
         $options     = [];
-        $contentType = false;
 
         $request = Requests::request($url, $headers, $data, $type, $options);
 
